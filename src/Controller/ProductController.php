@@ -5,15 +5,16 @@ namespace App\Controller;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-class MainController extends Controller
+class ProductController extends Controller
 {
     /**
-     * @Route("/home", name="home")
+     * @Route("/product", name="product")
      */
     public function index()
     {
         return $this->json([
-            'HOMEPAGE'
+            'message' => 'Welcome to your new controller!',
+            'path' => 'src/Controller/ProductController.php',
         ]);
     }
 }

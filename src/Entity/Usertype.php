@@ -24,7 +24,7 @@ class Usertype
     private $type;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Email", mappedBy="user_type")
+     * @ORM\OneToMany(targetEntity="CompanyEmail", mappedBy="user_type")
      */
     private $emails;
 
@@ -51,14 +51,14 @@ class Usertype
     }
 
     /**
-     * @return Collection|Email[]
+     * @return Collection|CompanyEmail[]
      */
     public function getEmails(): Collection
     {
         return $this->emails;
     }
 
-    public function addEmail(Email $email): self
+    public function addEmail(CompanyEmail $email): self
     {
         if (!$this->emails->contains($email)) {
             $this->emails[] = $email;
@@ -68,7 +68,7 @@ class Usertype
         return $this;
     }
 
-    public function removeEmail(Email $email): self
+    public function removeEmail(CompanyEmail $email): self
     {
         if ($this->emails->contains($email)) {
             $this->emails->removeElement($email);

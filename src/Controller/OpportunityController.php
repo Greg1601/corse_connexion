@@ -5,15 +5,16 @@ namespace App\Controller;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-class MainController extends Controller
+class OpportunityController extends Controller
 {
     /**
-     * @Route("/home", name="home")
+     * @Route("/opportunity", name="opportunity")
      */
     public function index()
     {
         return $this->json([
-            'HOMEPAGE'
+            'message' => 'Welcome to your new controller!',
+            'path' => 'src/Controller/OpportunityController.php',
         ]);
     }
 }
