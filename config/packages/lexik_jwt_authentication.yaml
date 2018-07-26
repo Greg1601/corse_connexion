@@ -3,5 +3,4 @@ lexik_jwt_authentication:
     public_key: '%kernel.project_dir%/config/jwt/public.pem'
     pass_phrase: 'corse'
     token_ttl:   3600
-    // ATTENTION - PASSER LA PASSPHRASE EN VARIABLE POUR SECURITE
 
