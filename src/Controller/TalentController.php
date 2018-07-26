@@ -14,7 +14,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
  */
 class TalentController extends Controller
 {
-
     /**
      * @Route("/email/get", name="get_email")
      */
