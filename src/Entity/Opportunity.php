@@ -29,7 +29,7 @@ class Opportunity
     private $body;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\company", inversedBy="opportunities")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Company", inversedBy="opportunities")
      * @ORM\JoinColumn(nullable=false)
      */
     private $company;
