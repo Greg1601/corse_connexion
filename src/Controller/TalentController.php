@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\Entity\TalentEmail;
+use App\Entity\Email;
 use App\Entity\Talent;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -12,33 +12,11 @@ use Symfony\Component\HttpFoundation\Response;
 
 class TalentController extends Controller
 {
-    /**
-     * @Route("/email/get", name="get_email")
-     */
-    public function getTalentEmailAction()
-    {
-
-        // Récupération des des items Usertype pour affichage
-        // Puis boucle sur la totlaité de la liste et renvoi
-        $usertypes = $this->getDoctrine()
-            ->getManager()
-            ->getRepository('App:Usertype')->findAll();
-        foreach ($usertypes as $usertype) {
-            $data[] = array(
-                'name' => $usertype->getType(),
-                'id' => $usertype->getId(),
-            );
-        }
-
-        return $this->json([
-            'usertypes' => $data,
-        ]);
-    }
 
     /**
-     * @Route("/email/add", name="add_email")
+     * @Route("/talent/email/add", name="add_talent_email")
      */
-    protected function addTalentEmailAction(Request $request)
+    public function addTalentEmailAction(Request $request)
     {
 
         $email = $request->request->get('email');
@@ -49,7 +27,7 @@ class TalentController extends Controller
             ->getRepository('App:Usertype')
             ->findOneById($usertypeId);
 
-        $newMail = new TalentEmail();
+        $newMail = new Email();
 
         $newMail->setAddress($email);
         $newMail->setUserType($usertype);

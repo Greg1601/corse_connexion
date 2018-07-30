@@ -3,65 +3,84 @@
 namespace App\Controller;
 
 use App\Entity\CompanyEmail;
+use App\Entity\Company;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
-/**
- * Company controller.
- *
- * @Route("company")
- */
 class CompanyController extends Controller
 {
+
+
     /**
-     * @Route("/email/get", name="get_email")
+     * @Route("/company/signup", name="company_signup")
      */
-    public function getCompanyEmailAction()
+    public function companySignupAction(Request $request, UserPasswordEncoderInterface $encoder)
     {
 
-        // Récupération des des items Usertype pour affichage
-        // Puis boucle sur la totlaité de la liste et renvoi
-        $usertypes = $this->getDoctrine()
-            ->getManager()
-            ->getRepository('App:Usertype')->findAll();
-        foreach ($usertypes as $usertype) {
-            $data[] = array(
-                'name' => $usertype->getType(),
-                'id' => $usertype->getId(),
-            );
-        }
+        $user = new Company;
+//        $data = $request->getContent();
+//        $decoded = json_decode($request, true);
+//        dump($request);die;
+        $encodedPassword = $encoder->encodePassword($user, ($request->request->get('email')));
+        $email = $request->request->get('email');
+        $user->setCompanyName($request->request->get('companyName'));
+        $user->setEmail($request->request->get('email'));
+        $user->setContactName($request->request->get('contactName'));
+        $user->setContactPhone($request->request->get('contactPhone'));
+        $user->setPicture($request->request->get('picture'));
+        $user->setProject($request->request->get('project'));
 
-        return $this->json([
-            'usertypes' => $data,
-        ]);
+        $user->setPassword($encodedPassword);
+
+        $this->getDoctrine()->getManager()->persist($user);
+        $this->getDoctrine()->getManager()->flush();
+        return $this->json($email,
+            Response::HTTP_OK
+        );
+
     }
 
     /**
-     * @Route("/email/add", name="add_email")
+     * @Route("/company/list", name="company_list")
      */
-    public function addCompanyEmailAction(Request $request)
+    public function listCompanyAction()
     {
+        $companies = $this->getDoctrine()->getManager()->getRepository('App:Company')->findAll();
 
-        $email = $request->request->get('email');
-        $usertypeId = $request->request->get('usertypeId');
-        // Récupération de l'info 'id" du lieu qu'on veut afficher
-        $usertype = $this->getDoctrine()
-            ->getManager()
-            ->getRepository('App:Usertype')
-            ->findOneById($usertypeId);
+        foreach ($companies as $company) {
+            $data[] = array(
+                'companyName' => $company->getCompanyName(),
+                'contactName' => $company->getContactName(),
+                'email' => $company->getEmail(),
+                'contactPhone' => $company->getContactPhone(),
+                'picture' => $company->getPicture(),
+                'project' => $company->getProject(),
+            );
+        }
 
-        $newMail = new CompanyEmail();
+        return $this->json($data);
 
-        $newMail->setAddress($email);
-        $newMail->setUserType($usertype);
+    }
+    /**
+     * @Route("/company/{id}/show", name="company_list")
+     */
+    public function showTalentAction($id)
+    {
+        $company = $this->getDoctrine()->getManager()->getRepository('App:Company')->findOneById($id);
 
-        $this->getDoctrine()->getManager()->persist($newMail);
-        $this->getDoctrine()->getManager()->flush();
+        $data[] = array(
+            'companyName' => $company->getCompanyName(),
+            'contactName' => $company->getContactName(),
+            'email' => $company->getEmail(),
+            'contactPhone' => $company->getContactPhone(),
+            'picture' => $company->getPicture(),
+            'project' => $company->getProject(),
+        );
 
-        return $this->json([
-            'email' => $email,
-            'usertype' => $usertypeId,
-        ]);
+        return $this->json($data);
+
     }
 }
