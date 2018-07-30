@@ -100,4 +100,45 @@ class TalentController extends Controller
 
     }
 
+    /**
+     * @Route("/talent/list", name="talent_list")
+     */
+    public function listTalentAction()
+    {
+        $talents = $this->getDoctrine()->getManager()->getRepository('App:Talent')->findAll();
+
+        foreach ($talents as $talent) {
+            $data[] = array(
+                'firstname' => $talent->getFirstname(),
+                'lastname' => $talent->getLastname(),
+                'email' => $talent->getEmail(),
+                'phone' => $talent->getPhone(),
+                'picture' => $talent->getPicture(),
+                'linkedin' => $talent->getLinkedinProfile(),
+            );
+        }
+
+        return $this->json($data);
+
+    }
+    /**
+     * @Route("/talent/{id}/show", name="talent_list")
+     */
+    public function showTalentAction($id)
+    {
+        $talent = $this->getDoctrine()->getManager()->getRepository('App:Talent')->findOneById($id);
+
+        $data[] = array(
+            'firstname' => $talent->getFirstname(),
+            'lastname' => $talent->getLastname(),
+            'email' => $talent->getEmail(),
+            'phone' => $talent->getPhone(),
+            'picture' => $talent->getPicture(),
+            'linkedin' => $talent->getLinkedinProfile(),
+        );
+
+        return $this->json($data);
+
+    }
+
 }

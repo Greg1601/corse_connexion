@@ -54,7 +54,7 @@ class Talent implements UserInterface
     private $linkedin_profile;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\skill", inversedBy="talents")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Skill", inversedBy="talents")
      */
     private $skills;
 
