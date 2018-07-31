@@ -216,5 +216,9 @@ class Company implements UserInterface
     {
     }
 
+    public function __toString(){
+        return $this->getCompanyName();
+    }
+
 
 }

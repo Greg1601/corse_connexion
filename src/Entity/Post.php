@@ -31,6 +31,11 @@ class Post
      */
     private $picture;
 
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $published;
+
     public function getId()
     {
         return $this->id;
@@ -70,5 +75,22 @@ class Post
         $this->picture = $picture;
 
         return $this;
+    }
+
+    public function getPublished(): ?\DateTimeInterface
+    {
+        return $this->published;
+    }
+
+    public function setPublished(\DateTimeInterface $published): self
+    {
+        $this->published = $published;
+
+        return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->getTitle();
     }
 }

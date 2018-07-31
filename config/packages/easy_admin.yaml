@@ -1,6 +1,152 @@
-#easy_admin:
-#    entities:
-#        # List the entity class name you want to manage
-#        - App\Entity\Product
-#        - App\Entity\Category
-#        - App\Entity\User
+easy_admin:
+
+    formats:
+        date:     'd/m/Y'
+        time:     'H:i'
+        datetime: 'd/m/Y H:i:s'
+
+    entities:
+        # List the entity class name you want to manage
+        Company:
+            class: App\Entity\Company
+            list:
+                title: Les Entreprises
+                fields:
+                    - id
+                    - company_name
+                    - contact_name
+                    - contact_phone
+                    - email
+                    - picture
+                    - project
+                actions:
+                    - { name: 'show', icon: 'info-circle', label: 'Show' }
+                    - { name: 'edit', icon: 'pencil', label: 'Edit' }
+                    - { name: 'delete', icon: 'trash', label: 'Delete' }
+
+
+        Talent:
+            class: App\Entity\Talent
+            list:
+                title: Les Talents
+                fields:
+                    - id
+                    - firstname
+                    - lastname
+                    - email
+                    - phone
+                    - skills
+                    - picture
+                    - linkedin_profile
+                actions:
+                - { name: 'show', icon: 'info-circle', label: 'Show' }
+                - { name: 'edit', icon: 'pencil', label: 'Edit' }
+                - { name: 'delete', icon: 'trash', label: 'Delete' }
+
+        Email:
+            class: App\Entity\Email
+            list:
+                title: Emails de contact
+                fields:
+                    - address
+                    - usertype.type
+                actions:
+                - { name: 'show', icon: 'info-circle', label: 'Show' }
+                - { name: 'edit', icon: 'pencil', label: 'Edit' }
+                - { name: 'delete', icon: 'trash', label: 'Delete' }
+
+        usertype:
+            class: App\Entity\Usertype
+            list:
+                title: types d'utilisateurs
+                fields:
+                    - id
+                    - type
+                actions:
+                - { name: 'show', icon: 'info-circle', label: 'Show' }
+                - { name: 'edit', icon: 'pencil', label: 'Edit' }
+                - { name: 'delete', icon: 'trash', label: 'Delete' }
+
+        Opportunity:
+            class: App\Entity\Opportunity
+            list:
+                title: Offres d'emploi
+                fields:
+                    - id
+                    - company.company_name
+                    - title
+                    - body
+                    - place
+                    - company.contact_name
+                    - company.email
+                    - salary
+                    - skills_required
+                    - required_expertise
+                    - remote_possibility
+                actions:
+                - { name: 'show', icon: 'info-circle', label: 'Show' }
+                - { name: 'edit', icon: 'pencil', label: 'Edit' }
+                - { name: 'delete', icon: 'trash', label: 'Delete' }
+
+        Skill:
+            class: App\Entity\Skill
+            list:
+                title: Les compétences
+                fields:
+                    - id
+                    - name
+                actions:
+                - { name: 'show', icon: 'info-circle', label: 'Show' }
+                - { name: 'edit', icon: 'pencil', label: 'Edit' }
+                - { name: 'delete', icon: 'trash', label: 'Delete' }
+
+        Event:
+            class: App\Entity\Event
+            list:
+                title: Les évènements
+                fields:
+                    - id
+                    - title
+                    - description
+                    - picture
+                    - begins
+                    - ends
+                actions:
+                - { name: 'show', icon: 'info-circle', label: 'Show' }
+                - { name: 'edit', icon: 'pencil', label: 'Edit' }
+                - { name: 'delete', icon: 'trash', label: 'Delete' }
+
+        Post:
+            class: App\Entity\Post
+            list:
+                title: Messages du blog
+                fields:
+                    - id
+                    - title
+                    - body
+                    - picture
+                    - published
+                actions:
+                - { name: 'show', icon: 'info-circle', label: 'Show' }
+                - { name: 'edit', icon: 'pencil', label: 'Edit' }
+                - { name: 'delete', icon: 'trash', label: 'Delete' }
+
+        Product:
+            class: App\Entity\Product
+            list:
+                title: Produits
+                fields:
+                    - id
+                    - name
+                    - description
+                    - price
+                    - picture
+                actions:
+                - { name: 'show', icon: 'info-circle', label: 'Show' }
+                - { name: 'edit', icon: 'pencil', label: 'Edit' }
+                - { name: 'delete', icon: 'trash', label: 'Delete' }
+
+    site_name: 'Corse Connexion'
+
+    design:
+        brand_color: 'Orange'

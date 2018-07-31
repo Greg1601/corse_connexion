@@ -203,4 +203,8 @@ class Talent implements UserInterface
     public function eraseCredentials()
     {
     }
+
+    public function __toString(){
+        return $this->getFirstName().' '.$this->getLastName();
+    }
 }
