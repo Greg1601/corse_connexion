@@ -23,6 +23,16 @@ easy_admin:
                     - { name: 'show', icon: 'info-circle', label: 'Show' }
                     - { name: 'edit', icon: 'pencil', label: 'Edit' }
                     - { name: 'delete', icon: 'trash', label: 'Delete' }
+            form:
+                title: Ajouter un Talent
+                fields:
+                    - company_name
+                    - contact_name
+                    - contact_phone
+                    - email
+                    - picture
+                    - project
+
 
 
         Talent:
@@ -42,6 +52,16 @@ easy_admin:
                 - { name: 'show', icon: 'info-circle', label: 'Show' }
                 - { name: 'edit', icon: 'pencil', label: 'Edit' }
                 - { name: 'delete', icon: 'trash', label: 'Delete' }
+            form:
+                title: Ajouter un Talent
+                fields:
+                    - firstname
+                    - lastname
+                    - email
+                    - phone
+                    - skills
+                    - picture
+                    - linkedin_profile
 
         Email:
             class: App\Entity\Email
@@ -54,6 +74,11 @@ easy_admin:
                 - { name: 'show', icon: 'info-circle', label: 'Show' }
                 - { name: 'edit', icon: 'pencil', label: 'Edit' }
                 - { name: 'delete', icon: 'trash', label: 'Delete' }
+            form:
+                title: Ajouter un email de contact
+                fields:
+                    - address
+                    - user_type
 
         usertype:
             class: App\Entity\Usertype
@@ -66,6 +91,10 @@ easy_admin:
                 - { name: 'show', icon: 'info-circle', label: 'Show' }
                 - { name: 'edit', icon: 'pencil', label: 'Edit' }
                 - { name: 'delete', icon: 'trash', label: 'Delete' }
+            form:
+                title: ajouter un type d'utilisateur
+                fields:
+                    - type
 
         Opportunity:
             class: App\Entity\Opportunity
@@ -87,6 +116,17 @@ easy_admin:
                 - { name: 'show', icon: 'info-circle', label: 'Show' }
                 - { name: 'edit', icon: 'pencil', label: 'Edit' }
                 - { name: 'delete', icon: 'trash', label: 'Delete' }
+            form:
+                title: Ajouter une offre d'emploi
+                fields:
+                    - company
+                    - title
+                    - body
+                    - place
+                    - salary
+                    - skills_required
+                    - required_expertise
+                    - remote_possibility
 
         Skill:
             class: App\Entity\Skill
@@ -99,6 +139,10 @@ easy_admin:
                 - { name: 'show', icon: 'info-circle', label: 'Show' }
                 - { name: 'edit', icon: 'pencil', label: 'Edit' }
                 - { name: 'delete', icon: 'trash', label: 'Delete' }
+            form:
+                title: Ajouter une nouvelle compétence
+                fields:
+                    - name
 
         Event:
             class: App\Entity\Event
@@ -115,6 +159,14 @@ easy_admin:
                 - { name: 'show', icon: 'info-circle', label: 'Show' }
                 - { name: 'edit', icon: 'pencil', label: 'Edit' }
                 - { name: 'delete', icon: 'trash', label: 'Delete' }
+            form:
+                title: Ajouter un nouvel évènement
+                fields:
+                    - title
+                    - description
+                    - picture
+                    - begins
+                    - ends
 
         Post:
             class: App\Entity\Post
@@ -130,6 +182,12 @@ easy_admin:
                 - { name: 'show', icon: 'info-circle', label: 'Show' }
                 - { name: 'edit', icon: 'pencil', label: 'Edit' }
                 - { name: 'delete', icon: 'trash', label: 'Delete' }
+            form:
+                title: Ajouter un post au Blog
+                fields:
+                    - title
+                    - body
+                    - picture
 
         Product:
             class: App\Entity\Product
@@ -145,6 +203,14 @@ easy_admin:
                 - { name: 'show', icon: 'info-circle', label: 'Show' }
                 - { name: 'edit', icon: 'pencil', label: 'Edit' }
                 - { name: 'delete', icon: 'trash', label: 'Delete' }
+            form:
+                title: Ajouter un Produit
+                fields:
+                    - name
+                    - description
+                    - price
+                    - picture
+
 
     site_name: 'Corse Connexion'
 

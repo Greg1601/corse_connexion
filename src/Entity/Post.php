@@ -36,6 +36,11 @@ class Post
      */
     private $published;
 
+    public function __construct()
+    {
+        $this->published = new \DateTime();
+    }
+
     public function getId()
     {
         return $this->id;
