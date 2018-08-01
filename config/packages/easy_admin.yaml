@@ -13,25 +13,27 @@ easy_admin:
                 title: Les Entreprises
                 fields:
                     - id
-                    - company_name
-                    - contact_name
-                    - contact_phone
-                    - email
-                    - picture
-                    - project
+                    - { property: 'company_name', label: "Nom de l'entreprise" }
+                    - { property: 'contact_name', label: "Nom du contact" }
+                    - { property: 'contact_phone', label: "Téléphone du contact" }
+                    - { property: 'email', label: "Adresse mail" }
+                    - { property: 'picture', label: "Image de l'entreprise" }
+                    - { property: 'project', label: "Projet" }
                 actions:
                     - { name: 'show', icon: 'info-circle', label: 'Show' }
                     - { name: 'edit', icon: 'pencil', label: 'Edit' }
-                    - { name: 'delete', icon: 'trash', label: 'Delete' }
+                    - { name: 'delete', icon: 'trash', label: ''}
+                    - { name: 'search', label: 'Rechercher une entreprise'}
+                    - { name: 'new', label: 'Ajouter une entreprise'}
             form:
                 title: Ajouter un Talent
                 fields:
-                    - company_name
-                    - contact_name
-                    - contact_phone
-                    - email
-                    - picture
-                    - project
+                    - { property: 'company_name', label: "Nom de l'entreprise" }
+                    - { property: 'contact_name', label: "Nom du contact" }
+                    - { property: 'contact_phone', label: "Téléphone du contact" }
+                    - { property: 'email', label: "Adresse mail" }
+                    - { property: 'picture', label: "Image de l'entreprise" }
+                    - { property: 'project', label: "Projet" }
 
 
 
@@ -41,44 +43,48 @@ easy_admin:
                 title: Les Talents
                 fields:
                     - id
-                    - firstname
-                    - lastname
-                    - email
-                    - phone
-                    - skills
-                    - picture
-                    - linkedin_profile
+                    - { property: 'firstname', label: "Prénom" }
+                    - { property: 'lastname', label: "Nom" }
+                    - { property: 'email', label: "Email" }
+                    - { property: 'phone', label: "Téléphone" }
+                    - { property: 'skills', label: "Compétences" }
+                    - { property: 'picture', label: "Photo" }
+                    - { property: 'linkedin_profile', label: "Profil LinkedIn" }
                 actions:
                 - { name: 'show', icon: 'info-circle', label: 'Show' }
                 - { name: 'edit', icon: 'pencil', label: 'Edit' }
-                - { name: 'delete', icon: 'trash', label: 'Delete' }
+                - { name: 'delete', icon: 'trash', label: '' }
+                - { name: 'search', label: 'Rechercher un talent'}
+                - { name: 'new', label: 'Ajouter un talent'}
             form:
                 title: Ajouter un Talent
                 fields:
-                    - firstname
-                    - lastname
-                    - email
-                    - phone
-                    - skills
-                    - picture
-                    - linkedin_profile
+                    - { property: 'firstname', label: "Prénom" }
+                    - { property: 'lastname', label: "Nom" }
+                    - { property: 'email', label: "Email" }
+                    - { property: 'phone', label: "Téléphone" }
+                    - { property: 'skills', label: "Compétences" }
+                    - { property: 'picture', label: "Photo" }
+                    - { property: 'linkedin_profile', label: "Profil LinkedIn" }
 
         Email:
             class: App\Entity\Email
             list:
                 title: Emails de contact
                 fields:
-                    - address
-                    - usertype.type
+                    - { property: 'address', label: "Email" }
+                    - { property: 'usertype.type', label: "Type d'utilisateur" }
                 actions:
                 - { name: 'show', icon: 'info-circle', label: 'Show' }
                 - { name: 'edit', icon: 'pencil', label: 'Edit' }
-                - { name: 'delete', icon: 'trash', label: 'Delete' }
+                - { name: 'delete', icon: 'trash', label: '' }
+                - { name: 'search', label: 'Rechercher un email'}
+                - { name: 'new', label: 'Ajouter un email'}
             form:
                 title: Ajouter un email de contact
                 fields:
-                    - address
-                    - user_type
+                    - { property: 'address', label: "Email" }
+                    - { property: 'usertype.type', label: "Type d'utilisateur" }
 
         usertype:
             class: App\Entity\Usertype
@@ -86,15 +92,17 @@ easy_admin:
                 title: types d'utilisateurs
                 fields:
                     - id
-                    - type
+                    - { property: 'type', label: "Type d'utilisateur" }
                 actions:
                 - { name: 'show', icon: 'info-circle', label: 'Show' }
                 - { name: 'edit', icon: 'pencil', label: 'Edit' }
-                - { name: 'delete', icon: 'trash', label: 'Delete' }
+                - { name: 'delete', icon: 'trash', label: '' }
+                - { name: 'search', label: "Rechercher un type d'utilisateur"}
+                - { name: 'new', label: "Ajouter un type d'utilisateur"}
             form:
                 title: ajouter un type d'utilisateur
                 fields:
-                    - type
+                    - { property: 'type', label: "Type d'utilisateur" }
 
         Opportunity:
             class: App\Entity\Opportunity
@@ -102,31 +110,33 @@ easy_admin:
                 title: Offres d'emploi
                 fields:
                     - id
-                    - company.company_name
-                    - title
-                    - body
-                    - place
-                    - company.contact_name
-                    - company.email
-                    - salary
-                    - skills_required
-                    - required_expertise
-                    - remote_possibility
+                    - { property: 'company.company_name', label: "Nom de l'entreprise" }
+                    - { property: 'title', label: "Intitulé de l'offre" }
+                    - { property: 'body', label: "Détails de l'offre" }
+                    - { property: 'place', label: "Ville" }
+                    - { property: 'company.contact_name', label: "Nom du contact" }
+                    - { property: 'company.email', label: "Email du contact" }
+                    - { property: 'salary', label: "Salaire indicatif" }
+                    - { property: 'skills_required', label: "Compétences requises" }
+                    - { property: 'required_expertise', label: "Expérience requise" }
+                    - { property: 'remote_possibility', label: "Possibilité de télétravail" }
                 actions:
                 - { name: 'show', icon: 'info-circle', label: 'Show' }
                 - { name: 'edit', icon: 'pencil', label: 'Edit' }
-                - { name: 'delete', icon: 'trash', label: 'Delete' }
+                - { name: 'delete', icon: 'trash', label: '' }
+                - { name: 'search', label: "Rechercher une offre d'emploi"}
+                - { name: 'new', label: "Ajouter une offre d'emploi"}
             form:
                 title: Ajouter une offre d'emploi
                 fields:
-                    - company
-                    - title
-                    - body
-                    - place
-                    - salary
-                    - skills_required
-                    - required_expertise
-                    - remote_possibility
+                    - { property: 'company', label: "Entreprise" }
+                    - { property: 'title', label: "Intitulé de l'offre" }
+                    - { property: 'body', label: "Détails de l'offre" }
+                    - { property: 'place', label: "Ville" }
+                    - { property: 'salary', label: "Salaire indicatif" }
+                    - { property: 'skills_required', label: "Compétences requises" }
+                    - { property: 'required_expertise', label: "Expérience requise" }
+                    - { property: 'remote_possibility', label: "Possibilité de télétravail" }
 
         Skill:
             class: App\Entity\Skill
@@ -134,15 +144,17 @@ easy_admin:
                 title: Les compétences
                 fields:
                     - id
-                    - name
+                    - { property: 'name', label: "Compétence" }
                 actions:
                 - { name: 'show', icon: 'info-circle', label: 'Show' }
                 - { name: 'edit', icon: 'pencil', label: 'Edit' }
-                - { name: 'delete', icon: 'trash', label: 'Delete' }
+                - { name: 'delete', icon: 'trash', label: '' }
+                - { name: 'search', label: 'Rechercher une compétence'}
+                - { name: 'new', label: 'Ajouter une compétence'}
             form:
                 title: Ajouter une nouvelle compétence
                 fields:
-                    - name
+                    - { property: 'name', label: "Compétence" }
 
         Event:
             class: App\Entity\Event
@@ -150,23 +162,25 @@ easy_admin:
                 title: Les évènements
                 fields:
                     - id
-                    - title
-                    - description
-                    - picture
-                    - begins
-                    - ends
+                    - { property: 'title', label: "Intitulé de l'évènement" }
+                    - { property: 'description', label: "Détails de l'évènement" }
+                    - { property: 'picture', label: "Image d'illustration" }
+                    - { property: 'begins', label: "Date de début de l'évènement" }
+                    - { property: 'ends', label: "Date de fin de l'évènement" }
                 actions:
                 - { name: 'show', icon: 'info-circle', label: 'Show' }
                 - { name: 'edit', icon: 'pencil', label: 'Edit' }
-                - { name: 'delete', icon: 'trash', label: 'Delete' }
+                - { name: 'delete', icon: 'trash', label: '' }
+                - { name: 'search', label: 'Rechercher un évènement'}
+                - { name: 'new', label: 'Ajouter un évènement'}
             form:
                 title: Ajouter un nouvel évènement
                 fields:
-                    - title
-                    - description
-                    - picture
-                    - begins
-                    - ends
+                    - { property: 'title', label: "Intitulé de l'évènement" }
+                    - { property: 'description', label: "Détails de l'évènement" }
+                    - { property: 'picture', label: "Image d'illustration" }
+                    - { property: 'begins', label: "Date de début de l'évènement" }
+                    - { property: 'ends', label: "Date de fin de l'évènement" }
 
         Post:
             class: App\Entity\Post
@@ -174,20 +188,22 @@ easy_admin:
                 title: Messages du blog
                 fields:
                     - id
-                    - title
-                    - body
-                    - picture
-                    - published
+                    - { property: 'title', label: "Titre de l'article" }
+                    - { property: 'body', label: "Corps de l'article" }
+                    - { property: 'picture', label: "Image" }
+                    - { property: 'published', label: "Date de publication" }
                 actions:
                 - { name: 'show', icon: 'info-circle', label: 'Show' }
                 - { name: 'edit', icon: 'pencil', label: 'Edit' }
-                - { name: 'delete', icon: 'trash', label: 'Delete' }
+                - { name: 'delete', icon: 'trash', label: '' }
+                - { name: 'search', label: 'Rechercher un article'}
+                - { name: 'new', label: 'Ajouter un article'}
             form:
                 title: Ajouter un post au Blog
                 fields:
-                    - title
-                    - body
-                    - picture
+                    - { property: 'title', label: "Titre de l'article" }
+                    - { property: 'body', label: "Corps de l'article" }
+                    - { property: 'picture', label: "Image" }
 
         Product:
             class: App\Entity\Product
@@ -195,21 +211,23 @@ easy_admin:
                 title: Produits
                 fields:
                     - id
-                    - name
-                    - description
-                    - price
-                    - picture
+                    - { property: 'name', label: "Intitulé du produit" }
+                    - { property: 'description', label: "Description du produit" }
+                    - { property: 'price', label: "Prix en €" }
+                    - { property: 'picture', label: "Image d'illustration" }
                 actions:
                 - { name: 'show', icon: 'info-circle', label: 'Show' }
                 - { name: 'edit', icon: 'pencil', label: 'Edit' }
-                - { name: 'delete', icon: 'trash', label: 'Delete' }
+                - { name: 'delete', icon: 'trash', label: '' }
+                - { name: 'search', label: 'Rechercher un produit'}
+                - { name: 'new', label: 'Ajouter un produit'}
             form:
                 title: Ajouter un Produit
                 fields:
-                    - name
-                    - description
-                    - price
-                    - picture
+                    - { property: 'name', label: "Intitulé du produit" }
+                    - { property: 'description', label: "Description du produit" }
+                    - { property: 'price', label: "Prix en €" }
+                    - { property: 'picture', label: "Image d'illustration" }
 
 
     site_name: 'Corse Connexion'
