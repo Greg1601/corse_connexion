@@ -35,11 +35,6 @@ class Opportunity
     private $company;
 
     /**
-     * @ORM\Column(type="text")
-     */
-    private $contact;
-
-    /**
      * @ORM\Column(type="text", nullable=true)
      */
     private $salary;
@@ -63,6 +58,11 @@ class Opportunity
      * @ORM\ManyToMany(targetEntity="App\Entity\Skill", inversedBy="opportunities")
      */
     private $skills_required;
+
+    /**
+     * @ORM\Column(type="boolean", options={"default":false})
+     */
+    private $is_checked;
 
     public function __construct()
     {
@@ -106,18 +106,6 @@ class Opportunity
     public function setCompany(?company $company): self
     {
         $this->company = $company;
-
-        return $this;
-    }
-
-    public function getContact(): ?string
-    {
-        return $this->contact;
-    }
-
-    public function setContact(string $contact): self
-    {
-        $this->contact = $contact;
 
         return $this;
     }
@@ -192,6 +180,18 @@ class Opportunity
         if ($this->skills_required->contains($skillsRequired)) {
             $this->skills_required->removeElement($skillsRequired);
         }
+
+        return $this;
+    }
+
+    public function getIsChecked(): ?bool
+    {
+        return $this->is_checked;
+    }
+
+    public function setIsChecked(bool $is_checked): self
+    {
+        $this->is_checked = $is_checked;
 
         return $this;
     }

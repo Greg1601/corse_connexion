@@ -7,8 +7,9 @@ easy_admin:
 
     entities:
         # List the entity class name you want to manage
-        Company:
+        Entreprises:
             class: App\Entity\Company
+            disabled_actions: ['new']
             list:
                 title: Les Entreprises
                 fields:
@@ -17,28 +18,30 @@ easy_admin:
                     - { property: 'contact_name', label: "Nom du contact" }
                     - { property: 'contact_phone', label: "Téléphone du contact" }
                     - { property: 'email', label: "Adresse mail" }
-                    - { property: 'picture', label: "Image de l'entreprise" }
+                    - { property: 'picture', type: 'image', label: "Image de l'entreprise" }
                     - { property: 'project', label: "Projet" }
                 actions:
                     - { name: 'show', icon: 'info-circle', label: 'Show' }
                     - { name: 'edit', icon: 'pencil', label: 'Edit' }
                     - { name: 'delete', icon: 'trash', label: ''}
                     - { name: 'search', label: 'Rechercher une entreprise'}
-                    - { name: 'new', label: 'Ajouter une entreprise'}
             form:
-                title: Ajouter un Talent
+                title: Modifier une Entreprise
                 fields:
                     - { property: 'company_name', label: "Nom de l'entreprise" }
                     - { property: 'contact_name', label: "Nom du contact" }
                     - { property: 'contact_phone', label: "Téléphone du contact" }
                     - { property: 'email', label: "Adresse mail" }
-                    - { property: 'picture', label: "Image de l'entreprise" }
+                    - { property: 'picture', label: "Ajouter une image" }
                     - { property: 'project', label: "Projet" }
+            show:
+                title: "Détails de l'entreprise"
 
 
 
-        Talent:
+        Talents:
             class: App\Entity\Talent
+            disabled_actions: ['new']
             list:
                 title: Les Talents
                 fields:
@@ -48,63 +51,66 @@ easy_admin:
                     - { property: 'email', label: "Email" }
                     - { property: 'phone', label: "Téléphone" }
                     - { property: 'skills', label: "Compétences" }
-                    - { property: 'picture', label: "Photo" }
+                    - { property: 'picture', type: 'image', label: "Photo" }
                     - { property: 'linkedin_profile', label: "Profil LinkedIn" }
                 actions:
-                - { name: 'show', icon: 'info-circle', label: 'Show' }
-                - { name: 'edit', icon: 'pencil', label: 'Edit' }
-                - { name: 'delete', icon: 'trash', label: '' }
-                - { name: 'search', label: 'Rechercher un talent'}
-                - { name: 'new', label: 'Ajouter un talent'}
+                    - { name: 'show', icon: 'info-circle', label: 'Show' }
+                    - { name: 'edit', icon: 'pencil', label: 'Edit' }
+                    - { name: 'delete', icon: 'trash', label: '' }
+                    - { name: 'search', label: 'Rechercher un talent'}
             form:
-                title: Ajouter un Talent
+                title: Modifier un Talent
                 fields:
                     - { property: 'firstname', label: "Prénom" }
                     - { property: 'lastname', label: "Nom" }
                     - { property: 'email', label: "Email" }
                     - { property: 'phone', label: "Téléphone" }
                     - { property: 'skills', label: "Compétences" }
-                    - { property: 'picture', label: "Photo" }
+                    - { property: 'picture', label: "Ajouter une photo" }
                     - { property: 'linkedin_profile', label: "Profil LinkedIn" }
+            show:
+                title: "Détails du talent"
 
         Email:
             class: App\Entity\Email
+            disabled_actions: ['show']
             list:
                 title: Emails de contact
                 fields:
                     - { property: 'address', label: "Email" }
                     - { property: 'usertype.type', label: "Type d'utilisateur" }
                 actions:
-                - { name: 'show', icon: 'info-circle', label: 'Show' }
-                - { name: 'edit', icon: 'pencil', label: 'Edit' }
-                - { name: 'delete', icon: 'trash', label: '' }
-                - { name: 'search', label: 'Rechercher un email'}
-                - { name: 'new', label: 'Ajouter un email'}
+                    - { name: 'show', icon: 'info-circle', label: 'Show' }
+                    - { name: 'edit', icon: 'pencil', label: 'Edit' }
+                    - { name: 'delete', icon: 'trash', label: '' }
+                    - { name: 'search', label: 'Rechercher un email'}
+                    - { name: 'new', label: 'Ajouter un email'}
             form:
-                title: Ajouter un email de contact
+                title: Ajouter ou modifier un email de contact
                 fields:
                     - { property: 'address', label: "Email" }
-                    - { property: 'usertype.type', label: "Type d'utilisateur" }
+                    - { property: 'user_type', label: "Type d'utilisateur" }
 
-        usertype:
+        Type_utilisateurs:
             class: App\Entity\Usertype
+            disabled_actions: ['show']
             list:
                 title: types d'utilisateurs
                 fields:
                     - id
                     - { property: 'type', label: "Type d'utilisateur" }
                 actions:
-                - { name: 'show', icon: 'info-circle', label: 'Show' }
-                - { name: 'edit', icon: 'pencil', label: 'Edit' }
-                - { name: 'delete', icon: 'trash', label: '' }
-                - { name: 'search', label: "Rechercher un type d'utilisateur"}
-                - { name: 'new', label: "Ajouter un type d'utilisateur"}
+                    - { name: 'show', icon: 'info-circle', label: 'Show' }
+                    - { name: 'edit', icon: 'pencil', label: 'Edit' }
+                    - { name: 'delete', icon: 'trash', label: '' }
+                    - { name: 'search', label: "Rechercher un type d'utilisateur"}
+                    - { name: 'new', label: "Ajouter un type d'utilisateur"}
             form:
-                title: ajouter un type d'utilisateur
+                title: Ajouter ou modifier un type d'utilisateur
                 fields:
                     - { property: 'type', label: "Type d'utilisateur" }
 
-        Opportunity:
+        Offres_emploi:
             class: App\Entity\Opportunity
             list:
                 title: Offres d'emploi
@@ -121,13 +127,13 @@ easy_admin:
                     - { property: 'required_expertise', label: "Expérience requise" }
                     - { property: 'remote_possibility', label: "Possibilité de télétravail" }
                 actions:
-                - { name: 'show', icon: 'info-circle', label: 'Show' }
-                - { name: 'edit', icon: 'pencil', label: 'Edit' }
-                - { name: 'delete', icon: 'trash', label: '' }
-                - { name: 'search', label: "Rechercher une offre d'emploi"}
-                - { name: 'new', label: "Ajouter une offre d'emploi"}
+                    - { name: 'show', icon: 'info-circle', label: 'Show' }
+                    - { name: 'edit', icon: 'pencil', label: 'Edit' }
+                    - { name: 'delete', icon: 'trash', label: '' }
+                    - { name: 'search', label: "Rechercher une offre d'emploi"}
+                    - { name: 'new', label: "Ajouter une offre d'emploi"}
             form:
-                title: Ajouter une offre d'emploi
+                title: Ajouter ou modifier une offre d'emploi
                 fields:
                     - { property: 'company', label: "Entreprise" }
                     - { property: 'title', label: "Intitulé de l'offre" }
@@ -137,8 +143,10 @@ easy_admin:
                     - { property: 'skills_required', label: "Compétences requises" }
                     - { property: 'required_expertise', label: "Expérience requise" }
                     - { property: 'remote_possibility', label: "Possibilité de télétravail" }
+            show:
+                title: "Détails de l'offre"
 
-        Skill:
+        Competences:
             class: App\Entity\Skill
             list:
                 title: Les compétences
@@ -146,17 +154,17 @@ easy_admin:
                     - id
                     - { property: 'name', label: "Compétence" }
                 actions:
-                - { name: 'show', icon: 'info-circle', label: 'Show' }
-                - { name: 'edit', icon: 'pencil', label: 'Edit' }
-                - { name: 'delete', icon: 'trash', label: '' }
-                - { name: 'search', label: 'Rechercher une compétence'}
-                - { name: 'new', label: 'Ajouter une compétence'}
+                    - { name: 'show', icon: 'info-circle', label: 'Show' }
+                    - { name: 'edit', icon: 'pencil', label: 'Edit' }
+                    - { name: 'delete', icon: 'trash', label: '' }
+                    - { name: 'search', label: 'Rechercher une compétence'}
+                    - { name: 'new', label: 'Ajouter une compétence'}
             form:
-                title: Ajouter une nouvelle compétence
+                title: Ajouter ou modifier une compétence
                 fields:
                     - { property: 'name', label: "Compétence" }
 
-        Event:
+        Evènements:
             class: App\Entity\Event
             list:
                 title: Les évènements
@@ -168,21 +176,21 @@ easy_admin:
                     - { property: 'begins', label: "Date de début de l'évènement" }
                     - { property: 'ends', label: "Date de fin de l'évènement" }
                 actions:
-                - { name: 'show', icon: 'info-circle', label: 'Show' }
-                - { name: 'edit', icon: 'pencil', label: 'Edit' }
-                - { name: 'delete', icon: 'trash', label: '' }
-                - { name: 'search', label: 'Rechercher un évènement'}
-                - { name: 'new', label: 'Ajouter un évènement'}
+                    - { name: 'show', icon: 'info-circle', label: 'Show' }
+                    - { name: 'edit', icon: 'pencil', label: 'Edit' }
+                    - { name: 'delete', icon: 'trash', label: '' }
+                    - { name: 'search', label: 'Rechercher un évènement'}
+                    - { name: 'new', label: 'Ajouter un évènement'}
             form:
-                title: Ajouter un nouvel évènement
+                title: Ajouter ou modifier évènement
                 fields:
                     - { property: 'title', label: "Intitulé de l'évènement" }
                     - { property: 'description', label: "Détails de l'évènement" }
-                    - { property: 'picture', label: "Image d'illustration" }
+                    - { property: 'picture', type: 'file', label: "Ajouter une image" }
                     - { property: 'begins', label: "Date de début de l'évènement" }
                     - { property: 'ends', label: "Date de fin de l'évènement" }
 
-        Post:
+        Articles:
             class: App\Entity\Post
             list:
                 title: Messages du blog
@@ -193,19 +201,19 @@ easy_admin:
                     - { property: 'picture', label: "Image" }
                     - { property: 'published', label: "Date de publication" }
                 actions:
-                - { name: 'show', icon: 'info-circle', label: 'Show' }
-                - { name: 'edit', icon: 'pencil', label: 'Edit' }
-                - { name: 'delete', icon: 'trash', label: '' }
-                - { name: 'search', label: 'Rechercher un article'}
-                - { name: 'new', label: 'Ajouter un article'}
+                    - { name: 'show', icon: 'info-circle', label: 'Show' }
+                    - { name: 'edit', icon: 'pencil', label: 'Edit' }
+                    - { name: 'delete', icon: 'trash', label: '' }
+                    - { name: 'search', label: 'Rechercher un article'}
+                    - { name: 'new', label: 'Ajouter un article'}
             form:
-                title: Ajouter un post au Blog
+                title: Ajouter ou modifier un article
                 fields:
                     - { property: 'title', label: "Titre de l'article" }
                     - { property: 'body', label: "Corps de l'article" }
-                    - { property: 'picture', label: "Image" }
+                    - { property: 'picture', type: 'file', label: "Ajouter une image" }
 
-        Product:
+        Produits:
             class: App\Entity\Product
             list:
                 title: Produits
@@ -216,21 +224,22 @@ easy_admin:
                     - { property: 'price', label: "Prix en €" }
                     - { property: 'picture', label: "Image d'illustration" }
                 actions:
-                - { name: 'show', icon: 'info-circle', label: 'Show' }
-                - { name: 'edit', icon: 'pencil', label: 'Edit' }
-                - { name: 'delete', icon: 'trash', label: '' }
-                - { name: 'search', label: 'Rechercher un produit'}
-                - { name: 'new', label: 'Ajouter un produit'}
+                    - { name: 'show', icon: 'info-circle', label: 'Show' }
+                    - { name: 'edit', icon: 'pencil', label: 'Edit' }
+                    - { name: 'delete', icon: 'trash', label: '' }
+                    - { name: 'search', label: 'Rechercher un produit'}
+                    - { name: 'new', label: 'Ajouter un produit'}
             form:
-                title: Ajouter un Produit
+                title: Ajouter ou modifier un produit
                 fields:
                     - { property: 'name', label: "Intitulé du produit" }
                     - { property: 'description', label: "Description du produit" }
                     - { property: 'price', label: "Prix en €" }
-                    - { property: 'picture', label: "Image d'illustration" }
+                    - { property: 'picture', type: 'file', label: "Ajouter une image" }
 
 
     site_name: 'Corse Connexion'
 
     design:
         brand_color: 'Orange'
+        form_theme: 'vertical'

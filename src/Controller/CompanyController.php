@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\Entity\CompanyEmail;
+use App\Entity\Email;
 use App\Entity\Company;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
@@ -65,7 +65,7 @@ class CompanyController extends Controller
 
     }
     /**
-     * @Route("/company/{id}/show", name="company_list")
+     * @Route("/company/{id}/show", name="company_show")
      */
     public function showTalentAction($id)
     {
