@@ -13,7 +13,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  * @ORM\Entity(repositoryClass="App\Repository\TalentRepository")
  * @UniqueEntity("email")
  */
-class Talent implements UserInterface
+class Talent implements UserInterface, \Serializable
 {
     /**
      * @ORM\Id()
@@ -63,9 +63,21 @@ class Talent implements UserInterface
      */
     private $password;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $isAdmin;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $username;
+
     public function __construct()
     {
         $this->skills = new ArrayCollection();
+        $this->username = $this->getFirstName().' '.$this->getLastName();
+        $this->isAdmin = '0';
     }
 
     public function getId()
@@ -206,5 +218,42 @@ class Talent implements UserInterface
 
     public function __toString(){
         return $this->getFirstName().' '.$this->getLastName();
+    }
+
+    public function getIsAdmin(): ?bool
+    {
+        return $this->isAdmin;
+    }
+
+    public function setIsAdmin(bool $isAdmin): self
+    {
+        $this->isAdmin = $isAdmin;
+
+        return $this;
+    }
+
+    public function serialize()
+    {
+        return serialize(array(
+            $this->id,
+            $this->username,
+            $this->password,
+        ));
+    }
+
+    public function unserialize($serialized)
+    {
+        list (
+            $this->id,
+            $this->username,
+            $this->password,
+            ) = unserialize($serialized, array('allowed_classes' => false));
+    }
+
+    public function setUsername(string $username): self
+    {
+        $this->username = $this->getFirstName().' '.$this->getLastName();
+
+        return $this;
     }
 }

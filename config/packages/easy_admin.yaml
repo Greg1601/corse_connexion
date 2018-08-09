@@ -34,6 +34,7 @@ easy_admin:
                     - { property: 'email', label: "Adresse mail" }
                     - { property: 'picture', label: "Ajouter une image" }
                     - { property: 'project', label: "Projet" }
+                    - {property: 'isAdmin', label: "Admin?"}
             show:
                 title: "Détails de l'entreprise"
 
@@ -68,6 +69,7 @@ easy_admin:
                     - { property: 'skills', label: "Compétences" }
                     - { property: 'picture', label: "Ajouter une photo" }
                     - { property: 'linkedin_profile', label: "Profil LinkedIn" }
+                    - {property: 'isAdmin', label: "Admin?"}
             show:
                 title: "Détails du talent"
 

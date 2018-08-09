@@ -10,7 +10,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\CompanyRepository")
  */
-class Company implements UserInterface
+class Company implements UserInterface, \Serializable
 {
     /**
      * @ORM\Id()
@@ -58,6 +58,11 @@ class Company implements UserInterface
      * @ORM\OneToMany(targetEntity="App\Entity\Opportunity", mappedBy="company")
      */
     private $opportunities;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $isAdmin;
 
     public function __construct()
     {
@@ -220,5 +225,34 @@ class Company implements UserInterface
         return $this->getCompanyName();
     }
 
+    public function getIsAdmin(): ?bool
+    {
+        return $this->isAdmin;
+    }
+
+    public function setIsAdmin(bool $isAdmin): self
+    {
+        $this->isAdmin = $isAdmin;
+
+        return $this;
+    }
+
+    public function serialize()
+    {
+        return serialize(array(
+            $this->id,
+            $this->username,
+            $this->password,
+        ));
+    }
+
+    public function unserialize($serialized)
+    {
+        list (
+            $this->id,
+            $this->username,
+            $this->password,
+            ) = unserialize($serialized, array('allowed_classes' => false));
+    }
 
 }

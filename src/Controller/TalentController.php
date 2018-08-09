@@ -9,6 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\HttpFoundation\Response;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 class TalentController extends Controller
 {
@@ -101,6 +102,7 @@ class TalentController extends Controller
     }
     /**
      * @Route("/talent/{id}/show", name="talent_show")
+     * @Security("has_role('ROLE_ADMIN')")
      */
     public function showTalentAction($id)
     {
