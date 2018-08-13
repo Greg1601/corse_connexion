@@ -64,9 +64,15 @@ class Company implements UserInterface, \Serializable
      */
     private $isAdmin;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $username;
+
     public function __construct()
     {
         $this->opportunities = new ArrayCollection();
+        $this->isAdmin = '0';
     }
 
     public function getId()
@@ -253,6 +259,13 @@ class Company implements UserInterface, \Serializable
             $this->username,
             $this->password,
             ) = unserialize($serialized, array('allowed_classes' => false));
+    }
+
+    public function setUsername(string $username): self
+    {
+        $this->username = $username;
+
+        return $this;
     }
 
 }

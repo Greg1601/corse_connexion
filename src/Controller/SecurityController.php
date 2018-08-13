@@ -13,5 +13,6 @@ class SecurityController extends Controller
      */
     public function login(Request $request)
     {
+//        dump($request);die;
     }
 }

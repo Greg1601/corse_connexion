@@ -24,20 +24,21 @@ class CompanyController extends Controller
 //        $data = $request->getContent();
 //        $decoded = json_decode($request, true);
 //        dump($request);die;
-        $encodedPassword = $encoder->encodePassword($user, ($request->request->get('email')));
-        $email = $request->request->get('email');
+        $encodedPassword = $encoder->encodePassword($user, ($request->request->get('password')));
+//        $email = $request->request->get('email');
         $user->setCompanyName($request->request->get('companyName'));
         $user->setEmail($request->request->get('email'));
         $user->setContactName($request->request->get('contactName'));
         $user->setContactPhone($request->request->get('contactPhone'));
         $user->setPicture($request->request->get('picture'));
         $user->setProject($request->request->get('project'));
+        $user->setUsername($request->request->get('contactName'));
 
         $user->setPassword($encodedPassword);
 
         $this->getDoctrine()->getManager()->persist($user);
         $this->getDoctrine()->getManager()->flush();
-        return $this->json($email,
+        return $this->json($request->request->get('companyName'),
             Response::HTTP_OK
         );
 

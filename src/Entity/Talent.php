@@ -76,7 +76,6 @@ class Talent implements UserInterface, \Serializable
     public function __construct()
     {
         $this->skills = new ArrayCollection();
-        $this->username = $this->getFirstName().' '.$this->getLastName();
         $this->isAdmin = '0';
     }
 
@@ -252,7 +251,7 @@ class Talent implements UserInterface, \Serializable
 
     public function setUsername(string $username): self
     {
-        $this->username = $this->getFirstName().' '.$this->getLastName();
+        $this->username = $username;
 
         return $this;
     }

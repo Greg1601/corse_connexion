@@ -75,7 +75,7 @@ class TalentController extends Controller
 //        $data = $request->getContent();
 //        $decoded = json_decode($request, true);
 //        dump($request);die;
-        $encodedPassword = $encoder->encodePassword($user, ($request->request->get('email')));
+        $encodedPassword = $encoder->encodePassword($user, ($request->request->get('password')));
         $email = $request->request->get('email');
         $user->setFirstname($request->request->get('firstname'));
         $user->setLastname($request->request->get('lastname'));
@@ -83,6 +83,7 @@ class TalentController extends Controller
         $user->setPhone($request->request->get('phone'));
         $user->setPicture($request->request->get('picture'));
         $user->setLinkedinProfile($request->request->get('linkedin'));
+        $user->setUsername($request->request->get('firstname').' '.$request->request->get('lastname'));
         $skills[] = $request->request->get('skills');
         foreach ($skills as $skill) {
             $this->getDoctrine()
