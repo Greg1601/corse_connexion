@@ -9,10 +9,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 class SecurityController extends Controller
 {
     /**
-     * @Route("/login", name="login")
+     * @Route("/api/login", name="login")
      */
     public function login(Request $request)
     {
-//        dump($request);die;
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+
+        $user = $this->getUser();
+        return $this->json($user);
     }
 }
