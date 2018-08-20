@@ -32,10 +32,6 @@ security:
                 provider: chain_provider
                 username_path: email
                 password_path: password
-#            guard:
-#                authenticators:
-#                - App\Security\TokenAuthenticator
-#                provider: chain_provider
             logout:
                 path:   /logout
                 target: /
@@ -51,4 +47,4 @@ security:
 
     access_control:
     - { path: ^/api/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-    - { path: ^/api,       roles: IS_AUTHENTICATED_FULLY }
+    - { path: ^/api/,       roles: IS_AUTHENTICATED_FULLY }

@@ -27,7 +27,7 @@ class MainController extends Controller
 
         $email = $request->request->get('email');
         $usertypeId = $request->request->get('usertypeId');
-        // Récupération de l'info 'id" du lieu qu'on veut afficher
+
         $usertype = $this->getDoctrine()
             ->getManager()
             ->getRepository('App:Usertype')

@@ -128,7 +128,8 @@ easy_admin:
                 title: Offres d'emploi
                 fields:
                     - id
-                    - { property: 'company.company_name', label: "Nom de l'entreprise" }
+                    - { property: 'is_checked', label: "Vérifiée?" }
+                    - { property: 'company.company_name', label: "Entreprise" }
                     - { property: 'title', label: "Intitulé de l'offre" }
                     - { property: 'body', label: "Détails de l'offre" }
                     - { property: 'place', label: "Ville" }
@@ -137,7 +138,7 @@ easy_admin:
                     - { property: 'salary', label: "Salaire indicatif" }
                     - { property: 'skills_required', label: "Compétences requises" }
                     - { property: 'required_expertise', label: "Expérience requise" }
-                    - { property: 'remote_possibility', label: "Possibilité de télétravail" }
+                    - { property: 'remote_possibility', label: "Télétravail?" }
                 actions:
                     - { name: 'show', icon: 'info-circle', label: 'Show' }
                     - { name: 'edit', icon: 'pencil', label: 'Edit' }
@@ -154,7 +155,8 @@ easy_admin:
                     - { property: 'salary', label: "Salaire indicatif" }
                     - { property: 'skills_required', label: "Compétences requises" }
                     - { property: 'required_expertise', label: "Expérience requise" }
-                    - { property: 'remote_possibility', label: "Possibilité de télétravail" }
+                    - { property: 'remote_possibility', label: "Télétravail?" }
+                    - { property: 'is_checked', label: "Vérifiée?" }
             show:
                 title: "Détails de l'offre"
 

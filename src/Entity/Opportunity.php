@@ -55,7 +55,7 @@ class Opportunity
     private $remote_possibility;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Skill", inversedBy="opportunities")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Skill", inversedBy="opportunities", fetch="EAGER")
      */
     private $skills_required;
 
@@ -67,6 +67,7 @@ class Opportunity
     public function __construct()
     {
         $this->skills_required = new ArrayCollection();
+        $this->is_checked = '0';
     }
 
     public function getId()
@@ -195,4 +196,5 @@ class Opportunity
 
         return $this;
     }
+
 }
