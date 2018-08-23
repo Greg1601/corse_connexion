@@ -28,9 +28,15 @@ class Usertype
      */
     private $emails;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Product", mappedBy="user_type")
+     */
+    private $products;
+
     public function __construct()
     {
         $this->emails = new ArrayCollection();
+        $this->products = new ArrayCollection();
     }
 
     public function getId()
@@ -58,6 +64,14 @@ class Usertype
         return $this->emails;
     }
 
+    /**
+     * @return Collection|Product[]
+     */
+    public function getProducts(): Collection
+    {
+        return $this->products;
+    }
+
     public function addEmail(Email $email): self
     {
         if (!$this->emails->contains($email)) {
@@ -67,6 +81,16 @@ class Usertype
 
         return $this;
     }
+    public function addProduct(Product $product): self
+    {
+        if (!$this->products->contains($product)) {
+            $this->products[] = $product;
+            $product->setUserType($this);
+        }
+
+        return $this;
+    }
+
 
     public function removeEmail(Email $email): self
     {
@@ -75,6 +99,19 @@ class Usertype
             // set the owning side to null (unless already changed)
             if ($email->getUserType() === $this) {
                 $email->setUserType(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function removeProduct(Product $product): self
+    {
+        if ($this->products->contains($product)) {
+            $this->products->removeElement($product);
+            // set the owning side to null (unless already changed)
+            if ($product->getUserType() === $this) {
+                $product->setUserType(null);
             }
         }
 

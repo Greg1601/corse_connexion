@@ -237,6 +237,7 @@ easy_admin:
                     - { property: 'description', label: "Description du produit" }
                     - { property: 'price', label: "Prix en €" }
                     - { property: 'picture', label: "Image d'illustration" }
+                    - { property: 'user_type', label: "Type de produit" }
                 actions:
                     - { name: 'show', icon: 'info-circle', label: 'Show' }
                     - { name: 'edit', icon: 'pencil', label: 'Edit' }
@@ -250,6 +251,7 @@ easy_admin:
                     - { property: 'description', label: "Description du produit" }
                     - { property: 'price', label: "Prix en €" }
                     - { property: 'picture', type: 'file', label: "Ajouter une image" }
+                    - { property: 'user_type', label: "Type de produit" }
 
 
     site_name: 'Corse Connexion'

@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Email;
 use App\Entity\Talent;
+use App\Entity\Product;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -148,4 +149,27 @@ class TalentController extends Controller
 
     }
 
+    /**
+     * @Route("/talent/product/list", name="talent_product_list")
+     */
+    public function listTalentProductAction()
+    {
+        // Récupération de l'ensemble des objets Product dont le usertype est talent (id : 1)
+        $products = $this->getDoctrine()->getManager()->getRepository('App:Product')->findBy(['user_type' => '1']);
+//        dump($products);die;
+
+        // Préparation des éléments Product pour renvoi
+        foreach ($products as $product) {
+
+            $data[] = array(
+                'name' => $product->getName(),
+                'description' => $product->getDescription(),
+                'price' => $product->getPrice(),
+                'picture' => $product->getPicture(),
+            );
+        }
+
+        // Renvoi
+        return $this->json($data);
+    }
 }

@@ -17,6 +17,12 @@ class Product
     private $id;
 
     /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Usertype", inversedBy="products")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $user_type;
+
+    /**
      * @ORM\Column(type="text")
      */
     private $name;
@@ -85,6 +91,18 @@ class Product
     public function setPicture(?string $picture): self
     {
         $this->picture = $picture;
+
+        return $this;
+    }
+
+    public function getUserType(): ?Usertype
+    {
+        return $this->user_type;
+    }
+
+    public function setUserType(?Usertype $user_type): self
+    {
+        $this->user_type = $user_type;
 
         return $this;
     }

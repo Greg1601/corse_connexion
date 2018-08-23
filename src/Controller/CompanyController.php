@@ -83,4 +83,28 @@ class CompanyController extends Controller
         return $this->json($data);
 
     }
+
+    /**
+     * @Route("/company/product/list", name="company_product_list")
+     */
+    public function listCompanyProductAction()
+    {
+        // Récupération de l'ensemble des objets Product dont le usertype est company (id : 2)
+        $products = $this->getDoctrine()->getManager()->getRepository('App:Product')->findBy(['user_type' => '2']);
+//        dump($products);die;
+
+        // Préparation des éléments Product pour renvoi
+        foreach ($products as $product) {
+
+            $data[] = array(
+                'name' => $product->getName(),
+                'description' => $product->getDescription(),
+                'price' => $product->getPrice(),
+                'picture' => $product->getPicture(),
+            );
+        }
+
+        // Renvoi
+        return $this->json($data);
+    }
 }

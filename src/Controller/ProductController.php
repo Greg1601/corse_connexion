@@ -8,13 +8,20 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 class ProductController extends Controller
 {
     /**
-     * @Route("/product", name="product")
+     * @Route("/product/{id}/show", name="product_show")
      */
-    public function index()
+    public function showProductAction($id)
     {
-        return $this->json([
-            'message' => 'Welcome to your new controller!',
-            'path' => 'src/Controller/ProductController.php',
-        ]);
+        $product = $this->getDoctrine()->getManager()->getRepository('App:Product')->findOneById($id);
+
+        $data[] = array(
+            'productName' => $product->getName(),
+            'description' => $product->getDescription(),
+            'price' => $product->getPrice(),
+            'picture' => $product->getPicture(),
+        );
+
+        return $this->json($data);
+
     }
 }
