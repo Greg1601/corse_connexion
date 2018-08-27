@@ -136,6 +136,52 @@ class TalentController extends Controller
     }
 
     /**
+     * @Route("/talent/checkmail", name="talent_check_email")
+     */
+    public function talentCheckMailAction(Request $request, UserPasswordEncoderInterface $encoder)
+    {
+
+        // Récupération de l'email de l'utilisateur et Test de l'existence du mail en BDD
+        // + récupération de l'entité Talent correspondante
+        $user = $this->getDoctrine()->getManager()->getRepository('App:Talent')->findOneByEmail($request->request->get('email'));
+
+        // Si une correspondance à été trouvée dans la base de donnée
+        // On récupère l'email et on envoie une réponse avec le mail
+        if ($user){
+            $checkedMail = $user->getEmail();
+            return $this->json('Email '.$checkedMail.' OK');
+        }
+        // Si aucun utilisateur n'a été trouvé
+        // On renvoie un message d'erreur
+        else{
+            return $this->json('Erreur: Email inconnu');
+        }
+
+    }
+
+    /**
+     * @Route("/talent/resetpassword", name="talent_resetPassword")
+     */
+    public function talentResetPasswordAction(Request $request, UserPasswordEncoderInterface $encoder)
+    {
+
+        // Récupération de l'email de l'utilisateur et Test de l'existence du mail en BDD
+        // + récupération de l'entité Talent correspondante
+        $user = $this->getDoctrine()->getManager()->getRepository('App:Talent')->findOneByEmail($request->request->get('email'));
+
+
+        $encodedPassword = $encoder->encodePassword($user, ($request->request->get('password')));
+
+        $user->setPassword($encodedPassword);
+
+        $this->getDoctrine()->getManager()->persist($user);
+        $this->getDoctrine()->getManager()->flush();
+
+        return $this->json('Mot de passe réinitialisé');
+
+    }
+
+    /**
      * @Route("/talent/{id}/show", name="talent_show")
      */
     public function showTalentAction($id)

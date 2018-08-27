@@ -64,6 +64,53 @@ class CompanyController extends Controller
         return $this->json($data);
 
     }
+
+    /**
+     * @Route("/company/checkmail", name="company_check_email")
+     */
+    public function companyCheckMailAction(Request $request, UserPasswordEncoderInterface $encoder)
+    {
+
+        // Récupération de l'email de l'utilisateur et Test de l'existence du mail en BDD
+        // + récupération de l'entité Company correspondante
+        $user = $this->getDoctrine()->getManager()->getRepository('App:Company')->findOneByEmail($request->request->get('email'));
+
+        // Si une correspondance à été trouvée dans la base de donnée
+        // On récupère l'email et on envoie une réponse avec le mail
+        if ($user){
+            $checkedMail = $user->getEmail();
+            return $this->json('Email '.$checkedMail.' OK');
+        }
+        // Si aucun utilisateur n'a été trouvé
+        // On renvoie un message d'erreur
+        else{
+            return $this->json('Erreur: Email inconnu');
+        }
+
+    }
+
+    /**
+     * @Route("/company/resetpassword", name="company_resetPassword")
+     */
+    public function companyResetPasswordAction(Request $request, UserPasswordEncoderInterface $encoder)
+    {
+
+        // Récupération de l'email de l'utilisateur et Test de l'existence du mail en BDD
+        // + récupération de l'entité Company correspondante
+        $user = $this->getDoctrine()->getManager()->getRepository('App:Company')->findOneByEmail($request->request->get('email'));
+
+
+        $encodedPassword = $encoder->encodePassword($user, ($request->request->get('password')));
+
+        $user->setPassword($encodedPassword);
+
+        $this->getDoctrine()->getManager()->persist($user);
+        $this->getDoctrine()->getManager()->flush();
+
+        return $this->json('Mot de passe réinitialisé');
+
+    }
+
     /**
      * @Route("/company/{id}/show", name="company_show")
      */
