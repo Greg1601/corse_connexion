@@ -69,6 +69,11 @@ class Company implements UserInterface, \Serializable
      */
     private $username;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $isValid;
+
     public function __construct()
     {
         $this->opportunities = new ArrayCollection();
@@ -264,6 +269,18 @@ class Company implements UserInterface, \Serializable
     public function setUsername(string $username): self
     {
         $this->username = $username;
+
+        return $this;
+    }
+
+    public function getIsValid(): ?bool
+    {
+        return $this->isValid;
+    }
+
+    public function setIsValid(bool $isValid): self
+    {
+        $this->isValid = $isValid;
 
         return $this;
     }

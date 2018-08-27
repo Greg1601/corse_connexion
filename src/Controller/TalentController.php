@@ -4,13 +4,12 @@ namespace App\Controller;
 
 use App\Entity\Email;
 use App\Entity\Talent;
-use App\Entity\Product;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\HttpFoundation\Response;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use Symfony\Bundle\MonologBundle\SwiftMailer;
 
 class TalentController extends Controller
 {
@@ -82,7 +81,7 @@ class TalentController extends Controller
     /**
      * @Route("/talent/signup", name="talent_signup")
      */
-    public function talentSignupAction(Request $request, UserPasswordEncoderInterface $encoder)
+    public function talentSignupAction(Request $request, \Swift_Mailer $mailer,UserPasswordEncoderInterface $encoder)
     {
 
         // Création d'un nouvel objet Talent
@@ -112,6 +111,22 @@ class TalentController extends Controller
         // Sauvegarde et transfert des données en BDD
         $this->getDoctrine()->getManager()->persist($user);
         $this->getDoctrine()->getManager()->flush();
+
+        // Envoi d'un mail automatique avec swiftMailer
+        $message = (new \Swift_Message('Registration Email'))
+            ->setFrom('contact@corse-connaexion.corsica')
+            ->setTo($user->getEmail())
+            ->setBody(
+                $this->renderView(
+                // app/Resources/views/Emails/registration.html.twig
+                    'Mails/registrationEmail.html.twig',
+                    array('username' => $user->getUsername())
+                ),
+                'text/html'
+            )
+        ;
+
+        $mailer->send($message);
 
         // Réponse pour validation de la requête renvoyée en Json
         return $this->json($request->request->get('firstname').' '.$request->request->get('lastname'),

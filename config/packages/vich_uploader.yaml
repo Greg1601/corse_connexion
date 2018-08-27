@@ -1,5 +1,10 @@
 vich_uploader:
     db_driver: orm
+    mappings:
+        pictures:
+            uri_prefix: /pictures/
+            upload_destination: '%kernel.root_dir%/../public/pictures/'
+            namer: vich_uploader.namer_uniqid
 
     #mappings:
     #    products:

@@ -52,7 +52,7 @@ easy_admin:
                     - { property: 'email', label: "Email" }
                     - { property: 'phone', label: "Téléphone" }
                     - { property: 'skills', label: "Compétences" }
-                    - { property: 'picture', type: 'image', label: "Photo" }
+                    - { property: 'picture', label: "Photo" }
                     - { property: 'linkedin_profile', label: "Profil LinkedIn" }
                 actions:
                     - { name: 'show', icon: 'info-circle', label: 'Show' }
@@ -250,7 +250,7 @@ easy_admin:
                     - { property: 'name', label: "Intitulé du produit" }
                     - { property: 'description', label: "Description du produit" }
                     - { property: 'price', label: "Prix en €" }
-                    - { property: 'picture', type: 'file', label: "Ajouter une image" }
+                    - { property: 'picture', label: "Ajouter une image" }
                     - { property: 'user_type', label: "Type de produit" }
 
 

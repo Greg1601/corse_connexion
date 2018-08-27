@@ -44,7 +44,9 @@ class Talent implements UserInterface, \Serializable
     private $phone;
 
     /**
-     * @ORM\Column(type="text", nullable=true)
+     * @ORM\Column(type="string", nullable=true)
+     * @Assert\NotBlank(message="Merci d'inclure une image au format jpeg")
+     * @Assert\File(mimeTypes={ "image/jpeg" })
      */
     private $picture;
 
@@ -73,10 +75,16 @@ class Talent implements UserInterface, \Serializable
      */
     private $username;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $isValid;
+
     public function __construct()
     {
         $this->skills = new ArrayCollection();
         $this->isAdmin = '0';
+        $this->isValid = '0';
     }
 
     public function getId()
@@ -252,6 +260,18 @@ class Talent implements UserInterface, \Serializable
     public function setUsername(string $username): self
     {
         $this->username = $username;
+
+        return $this;
+    }
+
+    public function getIsValid(): ?bool
+    {
+        return $this->isValid;
+    }
+
+    public function setIsValid(bool $isValid): self
+    {
+        $this->isValid = $isValid;
 
         return $this;
     }
