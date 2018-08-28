@@ -99,6 +99,8 @@ class TalentController extends Controller
         $user->setLinkedinProfile($request->request->get('linkedin'));
         $user->setPassword($encodedPassword);
         $user->setUsername($request->request->get('firstname').' '.$request->request->get('lastname'));
+        // Génération aléatoire d'une clé pour l'activation du compte
+        $user->setRandomKey($cle = md5(microtime(TRUE)*100000));
         // Récupération des éléments de classe Skill
         $skills[] = $request->request->get('skills');
         foreach ($skills as $skill) {
@@ -113,14 +115,17 @@ class TalentController extends Controller
         $this->getDoctrine()->getManager()->flush();
 
         // Envoi d'un mail automatique avec swiftMailer
-        $message = (new \Swift_Message('Registration Email'))
-            ->setFrom('contact@corse-connaexion.corsica')
+        $message = (new \Swift_Message('Activation de votre compte'))
+            ->setFrom('contact@corse-connexion.corsica')
             ->setTo($user->getEmail())
             ->setBody(
                 $this->renderView(
                 // app/Resources/views/Emails/registration.html.twig
                     'Mails/registrationEmail.html.twig',
-                    array('username' => $user->getUsername())
+                    array('username' => $user->getUsername(),
+                          'id' => $user->getId(),
+                          'key' => $user->getRandomKey()
+                    )
                 ),
                 'text/html'
             )

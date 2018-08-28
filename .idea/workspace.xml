@@ -3,9 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="83052606-8951-44e7-947f-57d65b2c4b2f" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/CompanyController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/CompanyController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/SecurityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SecurityController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/TalentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/TalentController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Company.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Company.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Talent.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Talent.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Mails/registrationEmail.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Mails/registrationEmail.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -49,11 +54,11 @@
           <entry key="project.open.time.69" value="2" />
           <entry key="project.open.time.70" value="2" />
           <entry key="project.open.time.75" value="1" />
-          <entry key="project.open.time.77" value="1" />
+          <entry key="project.open.time.77" value="2" />
           <entry key="project.open.time.81" value="1" />
           <entry key="project.open.time.82" value="1" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="20" />
+          <entry key="project.opened" value="21" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -65,10 +70,10 @@
           <entry key="log" value="4" />
           <entry key="pem" value="2" />
           <entry key="pem-back" value="1" />
-          <entry key="php" value="92" />
+          <entry key="php" value="97" />
           <entry key="twig" value="2" />
           <entry key="xlf" value="1" />
-          <entry key="yaml" value="42" />
+          <entry key="yaml" value="45" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.php.rename.constructor" />
@@ -77,27 +82,31 @@
           <entry key=".env file" value="1" />
           <entry key="Image" value="1" />
           <entry key="Log" value="4" />
-          <entry key="PHP" value="92" />
+          <entry key="PHP" value="97" />
           <entry key="PLAIN_TEXT" value="8" />
           <entry key="Twig" value="2" />
-          <entry key="YAML" value="42" />
+          <entry key="YAML" value="45" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="dist" value="63" />
+          <entry key="dist" value="102" />
           <entry key="dummy" value="6" />
-          <entry key="php" value="8576" />
-          <entry key="yaml" value="4682" />
+          <entry key="env" value="208" />
+          <entry key="php" value="9762" />
+          <entry key="twig" value="332" />
+          <entry key="yaml" value="4711" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.php.composer.actions" />
       <usages-collector id="statistics.php.composer.command.options" />
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PHP" value="8576" />
-          <entry key="PLAIN_TEXT" value="69" />
-          <entry key="YAML" value="4682" />
+          <entry key=".env file" value="208" />
+          <entry key="PHP" value="9762" />
+          <entry key="PLAIN_TEXT" value="108" />
+          <entry key="Twig" value="332" />
+          <entry key="YAML" value="4711" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts" />
@@ -114,36 +123,47 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controller/TalentController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="358">
-              <caret line="169" column="77" selection-start-line="169" selection-start-column="77" selection-end-line="169" selection-end-column="77" />
+            <state relative-caret-position="980">
+              <caret line="118" column="54" selection-start-line="118" selection-start-column="54" selection-end-line="118" selection-end-column="54" />
               <folding>
                 <element signature="e#34#55#0#PHP" expanded="true" />
-                <element signature="e#4371#4406#0#PHP" expanded="true" />
-                <element signature="e#5256#5268#1#PHP" expanded="true" />
                 <element signature="e#6123#6135#1#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Controller/CompanyController.php">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controller/MainController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="100" lean-forward="true" selection-start-line="100" selection-end-line="100" />
+            <state relative-caret-position="35">
+              <caret line="16" column="8" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Controller/SecurityController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="322">
+              <caret line="64" column="44" selection-start-line="64" selection-start-column="44" selection-end-line="64" selection-end-column="44" />
               <folding>
-                <element signature="e#2688#2701#1#PHP" expanded="true" />
-                <element signature="e#3625#3638#1#PHP" expanded="true" />
+                <element signature="e#907#919#1#PHP" expanded="true" />
+                <element signature="e#1046#1058#1#PHP" expanded="true" />
+                <element signature="e#1043#1055#1#PHP" expanded="true" />
+                <element signature="e#1636#1649#1#PHP" expanded="true" />
+                <element signature="e#1561#1574#1#PHP" expanded="true" />
+                <element signature="e#1907#1920#1#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/packages/security.yaml">
+        <entry file="file://$PROJECT_DIR$/src/Controller/CompanyController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="460">
-              <caret line="46" selection-start-line="46" selection-end-line="46" />
+            <state relative-caret-position="-168">
+              <caret line="38" column="8" selection-start-line="38" selection-start-column="8" selection-end-line="39" selection-end-column="52" />
             </state>
           </provider>
         </entry>
@@ -151,8 +171,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/var/log/dev.log">
           <provider selected="true" editor-type-id="LogFileEditorProvider">
-            <state relative-caret-position="480">
-              <caret line="8454" lean-forward="true" selection-start-line="8454" selection-end-line="8454" />
+            <state relative-caret-position="269">
+              <caret line="8726" selection-start-line="8726" selection-end-line="8726" />
             </state>
           </provider>
         </entry>
@@ -160,11 +180,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/Mails/registrationEmail.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="245">
-              <caret line="7" selection-start-line="7" selection-end-line="7" />
-              <folding>
-                <element signature="e#12#26#0#Twig" expanded="true" />
-              </folding>
+            <state relative-caret-position="315">
+              <caret line="9" column="69" selection-start-line="9" selection-start-column="69" selection-end-line="9" selection-end-column="69" />
             </state>
           </provider>
         </entry>
@@ -172,17 +189,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.env">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="245">
-              <caret line="7" column="36" selection-start-line="7" selection-start-column="36" selection-end-line="7" selection-end-column="36" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.env.dist">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="31" column="31" selection-start-line="31" selection-start-column="31" selection-end-line="31" selection-end-column="31" />
+            <state relative-caret-position="522">
+              <caret line="30" column="14" selection-start-line="30" selection-start-column="14" selection-end-line="30" selection-end-column="45" />
             </state>
           </provider>
         </entry>
@@ -190,11 +198,32 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Entity/Talent.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5005">
-              <caret line="251" column="5" selection-start-line="251" selection-start-column="5" selection-end-line="251" selection-end-column="5" />
+            <state relative-caret-position="35">
+              <caret line="78" column="33" selection-start-line="78" selection-start-column="33" selection-end-line="78" selection-end-column="33" />
               <folding>
                 <element signature="e#30#78#0#PHP" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Entity/Company.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="525">
+              <caret line="86" column="5" selection-start-line="86" selection-start-column="5" selection-end-line="86" selection-end-column="5" />
+              <folding>
+                <element signature="e#30#78#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/packages/swiftmailer.yaml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="35">
+              <caret line="1" column="28" selection-start-line="1" selection-start-column="28" selection-end-line="1" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -225,7 +254,6 @@
         <option value="$PROJECT_DIR$/src/Entity/CompanyEmail.php" />
         <option value="$PROJECT_DIR$/src/Entity/TalentEmail.php" />
         <option value="$PROJECT_DIR$/config/packages/routing.yaml" />
-        <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/src/Entity/Skill.php" />
         <option value="$PROJECT_DIR$/src/Entity/Post.php" />
         <option value="$PROJECT_DIR$/src/Entity/Email.php" />
@@ -234,9 +262,6 @@
         <option value="$PROJECT_DIR$/src/Security/TokenAuthenticator.php" />
         <option value="$PROJECT_DIR$/config/routes.yaml" />
         <option value="$PROJECT_DIR$/config/packages/lexik_jwt_authentication.yaml" />
-        <option value="$PROJECT_DIR$/src/Controller/SecurityController.php" />
-        <option value="$PROJECT_DIR$/src/Entity/Company.php" />
-        <option value="$PROJECT_DIR$/src/Controller/MainController.php" />
         <option value="$PROJECT_DIR$/config/routes/easy_admin.yaml" />
         <option value="$PROJECT_DIR$/src/Entity/Opportunity.php" />
         <option value="$PROJECT_DIR$/src/Controller/OpportunityController.php" />
@@ -246,12 +271,17 @@
         <option value="$PROJECT_DIR$/config/packages/vich_uploader.yaml" />
         <option value="$PROJECT_DIR$/config/services.yaml" />
         <option value="$PROJECT_DIR$/config/packages/easy_admin.yaml" />
-        <option value="$PROJECT_DIR$/templates/Mails/registrationEmail.html.twig" />
-        <option value="$PROJECT_DIR$/.env.dist" />
-        <option value="$PROJECT_DIR$/src/Entity/Talent.php" />
         <option value="$PROJECT_DIR$/config/packages/security.yaml" />
+        <option value="$PROJECT_DIR$/.env.dist" />
+        <option value="$PROJECT_DIR$/config/packages/swiftmailer.yaml" />
+        <option value="$PROJECT_DIR$/src/Controller/MainController.php" />
+        <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/src/Controller/TalentController.php" />
         <option value="$PROJECT_DIR$/src/Controller/CompanyController.php" />
+        <option value="$PROJECT_DIR$/src/Entity/Talent.php" />
+        <option value="$PROJECT_DIR$/src/Entity/Company.php" />
+        <option value="$PROJECT_DIR$/templates/Mails/registrationEmail.html.twig" />
+        <option value="$PROJECT_DIR$/src/Controller/SecurityController.php" />
       </list>
     </option>
   </component>
@@ -374,8 +404,13 @@
             <path>
               <item name="corse_connexion" type="b2602c69:ProjectViewProjectNode" />
               <item name="corse_connexion" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-              <item name="packages" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="corse_connexion" type="b2602c69:ProjectViewProjectNode" />
+              <item name="corse_connexion" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Entity" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="corse_connexion" type="b2602c69:ProjectViewProjectNode" />
@@ -471,12 +506,13 @@
       <workItem from="1535012776277" duration="6571000" />
       <workItem from="1535030875922" duration="4765000" />
       <workItem from="1535094146327" duration="1669000" />
-      <workItem from="1535353193976" duration="10713000" />
+      <workItem from="1535353193976" duration="11133000" />
+      <workItem from="1535439637193" duration="14059000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="176236000" />
+    <option name="totallyTimeSpent" value="190715000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -491,7 +527,30 @@
     <frame x="1987" y="25" width="1853" height="1175" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.255119" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.257886" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32899627" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39962825" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.4991708" weight="0.32991612" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="CSS-X-Fire" order="9" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.2736842" />
+      <window_info anchor="bottom" id="Version Control" order="11" weight="0.3291866" />
+      <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.50082916" side_tool="true" weight="0.32991612" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Git Scope" order="3" side_tool="true" />
+      <window_info anchor="right" id="Database" order="4" weight="0.32946378" />
+    </layout>
+    <layout-to-restore>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.257886" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -512,29 +571,6 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Git Scope" order="3" side_tool="true" />
       <window_info anchor="right" id="Database" order="4" weight="0.32946378" />
-    </layout>
-    <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20121615" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32991612" />
-      <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.4991708" weight="0.32991612" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="CSS-X-Fire" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.32991612" />
-      <window_info anchor="bottom" id="Version Control" order="11" weight="0.32991612" />
-      <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.50082916" side_tool="true" weight="0.32991612" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Git Scope" order="3" side_tool="true" />
-      <window_info anchor="right" id="Database" order="4" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -633,13 +669,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/SecurityController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="665">
-          <caret line="21" selection-start-line="21" selection-end-line="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/SkillController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="140">
@@ -689,13 +718,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="560">
           <caret line="17" column="11" lean-forward="true" selection-start-line="17" selection-start-column="11" selection-end-line="17" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/MainController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="580">
-          <caret line="29" selection-start-line="29" selection-end-line="29" />
         </state>
       </provider>
     </entry>
@@ -766,54 +788,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/services.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="16" column="40" selection-start-line="16" selection-start-column="40" selection-end-line="16" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/packages/swiftmailer.yaml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="7" column="36" selection-start-line="7" selection-start-column="36" selection-end-line="7" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.env.dist">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="31" column="31" selection-start-line="31" selection-start-column="31" selection-end-line="31" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/base.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
           <caret line="12" selection-start-line="12" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/Talent.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5005">
-          <caret line="251" column="5" selection-start-line="251" selection-start-column="5" selection-end-line="251" selection-end-column="5" />
-          <folding>
-            <element signature="e#30#78#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/Company.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="605">
-          <caret line="235" column="5" selection-start-line="235" selection-start-column="5" selection-end-line="235" selection-end-column="5" />
-          <folding>
-            <element signature="e#30#78#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -824,13 +802,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/Mails/registrationEmail.html.twig">
+    <entry file="file://$PROJECT_DIR$/config/services.yaml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-          <folding>
-            <element signature="e#12#26#0#Twig" expanded="true" />
-          </folding>
+        <state relative-caret-position="560">
+          <caret line="16" column="40" selection-start-line="16" selection-start-column="40" selection-end-line="16" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env.dist">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="41" column="31" selection-start-line="29" selection-start-column="4" selection-end-line="41" selection-end-column="35" />
         </state>
       </provider>
     </entry>
@@ -841,33 +823,90 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/var/log/dev.log">
-      <provider selected="true" editor-type-id="LogFileEditorProvider">
-        <state relative-caret-position="480">
-          <caret line="8454" lean-forward="true" selection-start-line="8454" selection-end-line="8454" />
+    <entry file="file://$PROJECT_DIR$/config/packages/swiftmailer.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="35">
+          <caret line="1" column="28" selection-start-line="1" selection-start-column="28" selection-end-line="1" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="522">
+          <caret line="30" column="14" selection-start-line="30" selection-start-column="14" selection-end-line="30" selection-end-column="45" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/TalentController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="358">
-          <caret line="169" column="77" selection-start-line="169" selection-start-column="77" selection-end-line="169" selection-end-column="77" />
+        <state relative-caret-position="980">
+          <caret line="118" column="54" selection-start-line="118" selection-start-column="54" selection-end-line="118" selection-end-column="54" />
           <folding>
             <element signature="e#34#55#0#PHP" expanded="true" />
-            <element signature="e#4371#4406#0#PHP" expanded="true" />
-            <element signature="e#5256#5268#1#PHP" expanded="true" />
             <element signature="e#6123#6135#1#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/MainController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="35">
+          <caret line="16" column="8" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/var/log/dev.log">
+      <provider selected="true" editor-type-id="LogFileEditorProvider">
+        <state relative-caret-position="269">
+          <caret line="8726" selection-start-line="8726" selection-end-line="8726" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/CompanyController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="100" lean-forward="true" selection-start-line="100" selection-end-line="100" />
+        <state relative-caret-position="-168">
+          <caret line="38" column="8" selection-start-line="38" selection-start-column="8" selection-end-line="39" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/Talent.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="35">
+          <caret line="78" column="33" selection-start-line="78" selection-start-column="33" selection-end-line="78" selection-end-column="33" />
           <folding>
-            <element signature="e#2688#2701#1#PHP" expanded="true" />
-            <element signature="e#3625#3638#1#PHP" expanded="true" />
+            <element signature="e#30#78#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/Company.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="86" column="5" selection-start-line="86" selection-start-column="5" selection-end-line="86" selection-end-column="5" />
+          <folding>
+            <element signature="e#30#78#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/Mails/registrationEmail.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="9" column="69" selection-start-line="9" selection-start-column="69" selection-end-line="9" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/SecurityController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="64" column="44" selection-start-line="64" selection-start-column="44" selection-end-line="64" selection-end-column="44" />
+          <folding>
+            <element signature="e#907#919#1#PHP" expanded="true" />
+            <element signature="e#1046#1058#1#PHP" expanded="true" />
+            <element signature="e#1043#1055#1#PHP" expanded="true" />
+            <element signature="e#1636#1649#1#PHP" expanded="true" />
+            <element signature="e#1561#1574#1#PHP" expanded="true" />
+            <element signature="e#1907#1920#1#PHP" expanded="true" />
           </folding>
         </state>
       </provider>

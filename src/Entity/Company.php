@@ -74,10 +74,16 @@ class Company implements UserInterface, \Serializable
      */
     private $isValid;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $randomKey;
+
     public function __construct()
     {
         $this->opportunities = new ArrayCollection();
         $this->isAdmin = '0';
+        $this->isValid = '0';
     }
 
     public function getId()
@@ -281,6 +287,18 @@ class Company implements UserInterface, \Serializable
     public function setIsValid(bool $isValid): self
     {
         $this->isValid = $isValid;
+
+        return $this;
+    }
+
+    public function getRandomKey(): ?string
+    {
+        return $this->randomKey;
+    }
+
+    public function setRandomKey(string $randomKey): self
+    {
+        $this->randomKey = $randomKey;
 
         return $this;
     }

@@ -80,6 +80,11 @@ class Talent implements UserInterface, \Serializable
      */
     private $isValid;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $randomKey;
+
     public function __construct()
     {
         $this->skills = new ArrayCollection();
@@ -272,6 +277,18 @@ class Talent implements UserInterface, \Serializable
     public function setIsValid(bool $isValid): self
     {
         $this->isValid = $isValid;
+
+        return $this;
+    }
+
+    public function getRandomKey(): ?string
+    {
+        return $this->randomKey;
+    }
+
+    public function setRandomKey(string $randomKey): self
+    {
+        $this->randomKey = $randomKey;
 
         return $this;
     }

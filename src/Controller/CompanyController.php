@@ -16,7 +16,7 @@ class CompanyController extends Controller
     /**
      * @Route("/company/signup", name="company_signup")
      */
-    public function companySignupAction(Request $request, UserPasswordEncoderInterface $encoder)
+    public function companySignupAction(Request $request, \Swift_Mailer $mailer, UserPasswordEncoderInterface $encoder)
     {
 
         $user = new Company;
@@ -32,11 +32,32 @@ class CompanyController extends Controller
         $user->setPicture($request->request->get('picture'));
         $user->setProject($request->request->get('project'));
         $user->setUsername($request->request->get('contactName'));
-
+        // Génération aléatoire d'une clé pour l'activation du compte
+        $user->setRandomKey($cle = md5(microtime(TRUE)*100000));
         $user->setPassword($encodedPassword);
 
         $this->getDoctrine()->getManager()->persist($user);
         $this->getDoctrine()->getManager()->flush();
+
+        // Envoi d'un mail automatique avec swiftMailer
+        $message = (new \Swift_Message('Activation de votre compte'))
+            ->setFrom('contact@corse-connexion.corsica')
+            ->setTo($user->getEmail())
+            ->setBody(
+                $this->renderView(
+                // app/Resources/views/Emails/registration.html.twig
+                    'Mails/registrationEmail.html.twig',
+                    array('username' => $user->getUsername(),
+                        'id' => $user->getId(),
+                        'key' => $user->getRandomKey()
+                    )
+                ),
+                'text/html'
+            )
+        ;
+
+        $mailer->send($message);
+
         return $this->json($request->request->get('companyName'),
             Response::HTTP_OK
         );
