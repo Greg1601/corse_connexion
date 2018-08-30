@@ -41,6 +41,11 @@ class Event
      */
     private $ends;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $place;
+
     public function getId()
     {
         return $this->id;
@@ -102,6 +107,18 @@ class Event
     public function setEnds(\DateTimeInterface $ends): self
     {
         $this->ends = $ends;
+
+        return $this;
+    }
+
+    public function getPlace(): ?string
+    {
+        return $this->place;
+    }
+
+    public function setPlace(string $place): self
+    {
+        $this->place = $place;
 
         return $this;
     }

@@ -11,7 +11,7 @@ class SecurityController extends Controller
     /**
      * @Route("/api/login", name="login")
      */
-    public function login(Request $request)
+    public function login()
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
 
@@ -69,10 +69,6 @@ class SecurityController extends Controller
             $this->getDoctrine()->getManager()->persist($user);
             $this->getDoctrine()->getManager()->flush();
         }
-
-
-
-
 
         return $this->json('Activation OK');
     }

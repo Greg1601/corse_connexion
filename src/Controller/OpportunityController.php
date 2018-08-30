@@ -17,7 +17,10 @@ class OpportunityController extends Controller
     {
 
         // Récupération de l'ensemble des objets Opportunity
-        $opportunities = $this->getDoctrine()->getManager()->getRepository('App:Opportunity')->findAll();
+        $opportunities = $this->getDoctrine()
+            ->getManager()
+            ->getRepository('App:Opportunity')
+            ->findAll();
 
         // Préparation des éléments Opportunity pour renvoi
         foreach ($opportunities as $opportunity) {
@@ -27,7 +30,11 @@ class OpportunityController extends Controller
                 $skillName[] = $skill->getName();
             }
             $data[] = array(
-                'companyName' => $this->getDoctrine()->getManager()->getRepository('App:Company')->findOneById($opportunity->getCompany())->getCompanyName(),
+                'companyName' => $this->getDoctrine()
+                    ->getManager()
+                    ->getRepository('App:Company')
+                    ->findOneById($opportunity->getCompany())
+                    ->getCompanyName(),
                 'title' => $opportunity->getTitle(),
                 'body' => $opportunity->getBody(),
                 'salary' => $opportunity->getSalary(),
@@ -80,29 +87,55 @@ class OpportunityController extends Controller
      */
     public function showOpportunityAction($id)
     {
-        // Récupération de l'offre d'emploi via son ID
-        $opportunity = $this->getDoctrine()->getManager()->getRepository('App:Opportunity')->findOneById($id);
+        // Récupération de l'offre d'emploi via son ID et vérification de son existence et de son validation
+        if (
+            $this->getDoctrine()
+                ->getManager()
+                ->getRepository('App:Opportunity')
+                ->findOneById($id)
+            &&
+            $this->getDoctrine()
+                ->getManager()
+                ->getRepository('App:Opportunity')
+                ->findOneById($id)
+                ->getIsChecked() == 1
+        )
+        {
 
-        // Récupération du nom du ou des objets de classe Skill relatif(s) à l'objet $opportunity dans un tableau pour affichage
-        foreach ($opportunity->getSkillsRequired() as $skill){
-            $skillName[] = $skill->getName();
+            // si elle existe on la stocke dans $opportunity
+            $opportunity = $this->getDoctrine()
+                ->getManager()
+                ->getRepository('App:Opportunity')
+                ->findOneById($id);
+            // Récupération du nom du ou des objets de classe Skill relatif(s) à l'objet $opportunity dans un tableau pour affichage
+            foreach ($opportunity->getSkillsRequired() as $skill){
+                $skillName[] = $skill->getName();
+            }
+
+            // Création du tableau des données à renvoyer
+            $data[] = array(
+                'title' => $opportunity->getTitle(),
+                'body' => $opportunity->getBody(),
+                // Récupération de l'objet Company relatif à l'objet Opportunity affiché, renvoi du nom (possibilité de renvoi d'autres données)
+                'company' => $this->getDoctrine()
+                    ->getManager()
+                    ->getRepository('App:Company')
+                    ->findOneById($opportunity->getCompany())
+                    ->getCompanyName(),
+                'salary' => $opportunity->getSalary(),
+                'expertise' => $opportunity->getRequiredExpertise(),
+                'place' => $opportunity->getPlace(),
+                'remote' => $opportunity->getremotePossibility(),
+                'skills' => $skillName,
+            );
+
+            // Mise au format Json et renvoi du tableau $data
+            return $this->json($data);
         }
 
-        // Création du tableau des données à renvoyer
-        $data[] = array(
-            'title' => $opportunity->getTitle(),
-            'body' => $opportunity->getBody(),
-            // Récupération de l'objet Company relatif à l'objet Opportunity affiché, renvoi du nom (possibilité de renvoi d'autres données)
-            'company' => $this->getDoctrine()->getManager()->getRepository('App:Company')->findOneById($opportunity->getCompany())->getCompanyName(),
-            'salary' => $opportunity->getSalary(),
-            'expertise' => $opportunity->getRequiredExpertise(),
-            'place' => $opportunity->getPlace(),
-            'remote' => $opportunity->getremotePossibility(),
-            'skills' => $skillName,
-        );
-
-        // Mise au format Json et renvoi du tableau $data
-        return $this->json($data);
+        // si l'Opportunity pointée par $id n'éxiste pas ou n'est pas validée on renvoie un msg d'erreur
+        else
+            return $this->json('Wrong Opportunity');
 
     }
 }
